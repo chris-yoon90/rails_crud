@@ -18,6 +18,7 @@ class TextsController < ApplicationController
 
 	def show
 		@text = Text.find(params[:id])
+		@comments = @text.comments
 	end
 
 	def destroy

@@ -1,6 +1,29 @@
 <h2><%= @text.author %></h2>
 <p><%= @text.body %> </p>
 
+<h3>Comments</h3>
+<p>
+<% @text.comments.each do |comment| %>
+	<div>BY: <%= comment.commenter %> <%= link_to "delete", text_comment_path(@text, comment), method: :delete, data: {confirm: "Are you sure?"} %></div>
+	<div><%= comment.comment_text %></div>
+<% end %>
+</p>
+
+<%= form_for :comment, url: text_comments_path(@text) do |f| %>
+	<p>
+		<%= f.label :commenter, "Commenter:" %>  <br />
+		<%= f.text_field :commenter %>
+	</p>
+	<p>
+		<%= f.label :comment_text, "Comment" %> <br />
+		<%= f.text_area :comment_text %> 
+	</p>
+	<p>
+	<%= f.submit "Submit" %>
+	</p>
+<%end%>
+
+
 <p>
 <%= link_to "edit", edit_text_path(@text) %> | 
 <%= link_to "delete", @text, method: :delete, data: { confirm: "Are you sure"} %>

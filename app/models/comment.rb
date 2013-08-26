@@ -1,3 +1,4 @@
 class Comment < ActiveRecord::Base
-  belongs_to :text
+	validates :commenter, presence: true, length: {minimum: 2, maximum: 50}
+ 	belongs_to :text
 end
