@@ -1,0 +1,16 @@
+<h1>Texts index</h1>
+	<% @texts.each do |text| %>
+	<p>
+		<div>
+		From: <%= text.author %> <%= link_to "show", text %> | 
+		<%= link_to "edit", edit_text_path(text) %> | 
+		<%= link_to "delete", text, method: :delete, data: {confirm: "Are you sure?"} %>
+		</div>
+		<div>
+		<%= text.body %>
+		</div>
+	</p>
+	<% end %>
+
+<%= link_to 'Create a new text', new_text_path %> <br/>
+<%= link_to 'Main page', root_path %>

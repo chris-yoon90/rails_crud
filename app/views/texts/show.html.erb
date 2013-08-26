@@ -1,0 +1,9 @@
+<h2><%= @text.author %></h2>
+<p><%= @text.body %> </p>
+
+<p>
+<%= link_to "edit", edit_text_path(@text) %> | 
+<%= link_to "delete", @text, method: :delete, data: { confirm: "Are you sure"} %>
+</p>
+
+<%= link_to "Back to index", texts_path %>
