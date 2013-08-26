@@ -1,0 +1,2 @@
+<div>BY: <%= comment.commenter %> <%= link_to "delete", text_comment_path(@text, comment), method: :delete, data: {confirm: "Are you sure?"} %></div>
+<div><%= comment.comment_text %></div>
